@@ -29,3 +29,10 @@ def collatzList =[]
       count += 1
     collatzList.append( count )
   return (collatzList)
+
+#Print the collatz sequence of a positive integer.
+def printCollatz(number)
+  y = int(input ()) 
+  while y > 1: 
+    y = collatz (y)
+    print (y)
