@@ -1,38 +1,37 @@
 #Return collatz of a positive integer.
 def collatz(number):
-  if number % 2 == 0: x = (number // 2)
-  else: x = 3 * number +1
-  return (x)
+    if number % 2 == 0: number = (number // 2)
+    else: number = 3 * number +1
+    return number
 
 #Return the maxkey and maximum value of a list.
 def maxList(x):
-  maximum = 0
-  for j in range(len(x)):
-    if x[j] > maximum:
-      maximum = x[j]
-      maxkey = j+1
-  return (maxkey, maximum)
+    maximum = 0
+    for j in range(len(x)):
+        if x[j] > maximum:
+            maximum = x[j]
+            maxkey = j+1
+    return maxkey, maximum
 
 #Print a list
 def printList(x):
-  for j in range(len(x)):
-    print (str(j+1) + ": " + str(x[j]))
+    for j in range(len(x)):
+        print (str(j+1) + ": " + str(x[j]))
 
 #Create list of number of steps for output of collatz() from 1 to (top).
-def collatzList =[]
-  print ("How high do you want to go")
-  top = int(input())
-  for i in range (1, top+1):
-    count = 0
-    while i > 1:
-      i = collatz (i)
-      count += 1
-    collatzList.append( count )
-  return (collatzList)
+def collatzList(x):
+    print ("How high do you want to go")
+    top = int(input())
+    for i in range (1, top+1):
+        count = 0
+        while i > 1:
+            i = collatz (i)
+            count += 1
+        collatzList.append( count )
+    return collatzList
 
 #Print the collatz sequence of a positive integer.
-def printCollatz(number)
-  y = int(input ()) 
-  while y > 1: 
-    y = collatz (y)
-    print (y)
+def printCollatz(number):
+    while number > 1: 
+        number = collatz (number)
+        print (number)
