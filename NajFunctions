@@ -1,0 +1,16 @@
+def collatz(number):
+  if number % 2 == 0: x = (number // 2)
+  else: x = 3 * number +1
+  return (x)
+  
+def maxList(x):
+  maximum = 0
+  for j in range(len(x)):
+    if x[j] > maximum:
+      maximum = x[j]
+      maxkey = j+1
+  print (maxkey, maximum)
+  
+def printList(x):
+  for j in range(len(x)):
+    print (str(j+1) + ": " + str(x[j]))
