@@ -1,0 +1,50 @@
+func countTheArray(_ array: Array<Any>) -> (Int, Bool) {
+    var count = 0
+    var isEven = true
+    for _ in array {
+        count += 1
+        isEven = !isEven
+    }
+    return (count, isEven)
+}
+
+func bubbleSort(_ array:Array<Double>) -> Array<Double> {
+    let (arrayLength, _) = countTheArray(array)
+    var newArray = array
+    var finishedSorting=false
+    while !finishedSorting {
+        finishedSorting = true
+        for i in 0 ..< arrayLength - 1 {
+            if newArray[i] > newArray[i+1] {
+                newArray.insert(newArray.remove(at:i), at: i+1)
+                finishedSorting = false
+            }
+        }
+    }
+    return newArray
+}
+
+func calcMedian(sortedArray: Array<Double>) -> Double {
+    let (arrayLength, isEven) = countTheArray(sortedArray)
+    var median:Double
+    if !isEven {
+        let midPointIndex:Int = (arrayLength-1)/2
+        median = sortedArray[midPointIndex]
+    } else {
+        let midPointUpper:Int = arrayLength / 2
+        median = 0.5 * (sortedArray[midPointUpper] + sortedArray[midPointUpper-1])
+    }
+    return median
+}
+
+func findMedian(_ array: Array<Double>) -> Double {
+    let sortedArray=(bubbleSort(array))
+    return(calcMedian(sortedArray: sortedArray))
+ }
+
+let testArray = [0.0, 65,11,-7,4,5.1,5.5,100]
+
+let median = findMedian(testArray)
+
+
+
